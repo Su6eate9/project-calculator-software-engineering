@@ -1,6 +1,6 @@
-.button {
-  width: 5rem;
-  height: 5rem;
+button {
+  width: 4.5rem;
+  height: 4.5rem;
 
   display: flex;
   justify-content: center;
@@ -11,14 +11,26 @@
   padding: 0.6em 1.2em;
 
   font-size: 1.5rem;
-  font-weight: 400;
+  font-weight: 500;
   font-family: inherit;
 
-  background-color: #1a1a1a;
+  background-color: #333333;
   cursor: pointer;
-  transition: border-color 0.25s;
+}
+
+.buttonOrange {
+  background-color: #ff9f0a;
+}
+
+.buttonGrey {
+  background-color: #a5a5a5;
+}
+
+.buttonZero {
+  width: 10rem;
+  padding: 6em 2em;
 }
 
 button:hover {
-  background-color: #1a1a1a 0.5;
+  opacity: 0.8;
 }

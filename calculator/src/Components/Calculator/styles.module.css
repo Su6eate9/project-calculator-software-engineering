@@ -6,23 +6,38 @@
   align-items: center;
   gap: 1rem;
 
-  background-color: bisque;
+  background-color: #000;
 
   width: 25rem;
   height: 40rem;
+
+  border-radius: 10px;
 }
 
 .display {
   width: 90%;
   height: 20%;
 
-  background-color: azure;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+
+  font-size: 5rem;
+  font-weight: 500;
+  font-family: inherit;
+
+  border-radius: 10px;
 }
+
+/* .display p {
+  margin-right: 1rem;
+} */
 
 .pad {
   width: 90%;
+
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   gap: 1rem;
 }
