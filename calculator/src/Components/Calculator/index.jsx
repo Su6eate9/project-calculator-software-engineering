@@ -1,20 +1,18 @@
-import { useState } from "react";
-
+import React, { useState } from "react";
 import { Button } from "../Button";
 import { ButtonOrange } from "../Button/ButtonOrange";
 import { ButtonGrey } from "../Button/ButtonGrey";
-
 import styles from "./styles.module.css";
 
 export const Calculator = () => {
-  const [value, setValue] = useState(0);
-  const [oldValue, setOldValue] = useState(0);
+  const [value, setValue] = useState("0");
+  const [oldValue, setOldValue] = useState("0");
   const [operator, setOperator] = useState("");
 
   function insert(e) {
     let num = e.target.value;
 
-    if (value === 0 || value === -0) {
+    if (value === "0" || value === "-0") {
       setValue(num);
     } else {
       setValue(value + num);
@@ -22,25 +20,21 @@ export const Calculator = () => {
   }
 
   function clean() {
-    setValue(0);
-    setOldValue(0);
+    setValue("0");
+    setOldValue("0");
     setOperator("");
   }
 
   function back() {
-    setValue.slice(0, -1);
+    setValue(value.slice(0, -1));
   }
 
-  function porcentage() {
-    setValue(value / 100);
+  function percentage() {
+    setValue((parseFloat(value) / 100).toString());
   }
 
   function changeSign() {
-    if (value > 0) {
-      setValue(-value);
-    } else {
-      setValue(Math.abs(value));
-    }
+    setValue((parseFloat(value) * -1).toString());
   }
 
   function handleOperator(e) {
@@ -53,31 +47,22 @@ export const Calculator = () => {
     } else {
       setOperator(operatorValue);
       setOldValue(value);
-      setValue(0);
+      setValue("0");
     }
   }
 
   function calculate() {
-    let result = 0;
-    switch (operator) {
-      case "/":
-        result = parseFloat(oldValue) / parseFloat(value);
-        break;
-      case "x":
-        result = parseFloat(oldValue) * parseFloat(value);
-        break;
-      case "-":
-        result = parseFloat(oldValue) - parseFloat(value);
-        break;
-      case "+":
-        result = parseFloat(oldValue) + parseFloat(value);
-        break;
-      default:
-        result = parseFloat(value);
+    if (operator === "/") {
+      setValue((parseFloat(oldValue) / parseFloat(value)).toString());
+    } else if (operator === "x") {
+      setValue((parseFloat(oldValue) * parseFloat(value)).toString());
+    } else if (operator === "-") {
+      setValue((parseFloat(oldValue) - parseFloat(value)).toString());
+    } else if (operator === "+") {
+      setValue((parseFloat(oldValue) + parseFloat(value)).toString());
     }
-    setValue(String(result));
-    setOldValue(0);
     setOperator("");
+    setOldValue("0");
   }
 
   return (
@@ -89,7 +74,7 @@ export const Calculator = () => {
       <section className={styles.pad}>
         <ButtonGrey item="AC" clean={clean} />
         <ButtonGrey item="+/-" changeSign={changeSign} />
-        <ButtonGrey item="%" porcentage={porcentage} />
+        <ButtonGrey item="%" porcentage={percentage} />
         <ButtonOrange item="/" handleOperator={handleOperator} value={"/"} />
       </section>
 
