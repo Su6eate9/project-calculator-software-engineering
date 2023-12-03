@@ -5,6 +5,72 @@
   text-align: center;
 }
 
-/* body {
-  background-color: black;
-} */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+
+.container {
+  width: 25rem;
+}
+
+.calculator {
+  border: 1px solid #000;
+  padding: 20px;
+  border-radius: 16px;
+  background: #000;
+  box-shadow: 0px 3px 15px rgba(113, 115, 119, 0.5);
+}
+
+input {
+  width: 20rem;
+  border: none;
+  padding: 1.5rem 0.5rem;
+  margin: 0.625rem;
+  background: transparent;
+  box-shadow: 0px 3px 15px rgbs(84, 84, 84, 0.1);
+  font-size: 3.5rem;
+  text-align: right;
+  cursor: pointer;
+  color: #ffffff;
+}
+
+input::placeholder {
+  color: #ffffff;
+}
+
+button {
+  border: none;
+  width: 4rem;
+  height: 4rem;
+  margin: 0.625rem;
+  border-radius: 50%;
+  background: transparent;
+  font-size: 1.5rem;
+  font-weight: 00;
+  cursor: pointer;
+}
+
+.number {
+  background-color: #424242;
+}
+
+.operator {
+  background-color: #ff9900;
+  color: #fff;
+}
+
+.buttonGrey {
+  background-color: #929292;
+}
